@@ -1,29 +1,23 @@
 const $ = document;
+
 registerEvents();
 
 function registerEvents() {
-    $.addEventListener('DOMContentLoaded', displayPosts);
-    $.addEventListener('DOMContentLoaded', resetContent);
+  $.addEventListener('DOMContentLoaded', displayPosts)
 }
 
-function displayPosts(e) {
-    fetch("http://localhost:3000/posts")
-        .then(res => res.json())//return posts
-        .then(posts => {
-            console.log(posts);
-            let html = '';
-            posts.forEach(post => {
-                html += `<li>${post.title}</li>`
-            })
-            $.getElementById('container').innerHTML = `<ul>${html}</ul>`;
-        })
-        .catch(error => {
-            console.log(error);
-        })
-}
+function displayPosts() {
+  fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    .then(posts => {
+      let html = '';
+      posts.forEach(
+        post => {
+          html += `<li>${post.title}</li>`
+        }
+      );
+      $.getElementById('container').innerHTML = `<ul>${html}</ul>`
+    }
 
-function resetContent(e) {
-    setTimeout(() => {
-        $.getElementById('container').innerHTML = '<p>Reset</p>'
-    }, 3000)
+    )
 }
