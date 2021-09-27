@@ -13,8 +13,10 @@ export default function () {
     var params = {
         headers: {
             'Content-Type': 'application/json',
-        },
+        }
     };
 
     http.post(url, payload, params);
+
 }
+
