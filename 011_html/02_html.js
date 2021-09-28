@@ -3,7 +3,7 @@ import { parseHTML } from 'k6/html';
 
 export default function () { //https://stackoverflow.com/questions/21117160/what-is-export-default-in-javascript
     const res = http.get('https://red-water-022d04b03.azurestaticapps.net/');
-    const doc = parseHTML(res.body);
+    const doc = parseHTML(res.body); 
 
     //jQuaery like parsing - https://k6.io/docs/javascript-api/k6-html/parsehtml-src
     const pageTitle = doc.find('head title').text();

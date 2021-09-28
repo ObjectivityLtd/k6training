@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import {check} from 'k6';
+import {check, group} from 'k6';
 
 export default function () {
     // Add tag to request metric data
@@ -17,5 +17,10 @@ export default function () {
             name: 'status is HTTP OK'
         },
     );
+    group('gro1', function() {
+        group('gro2', function() {
+            console.log("grupa")
+        });
+    });
 
 }
